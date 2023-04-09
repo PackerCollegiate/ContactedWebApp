@@ -2,4 +2,4 @@
 Luke Sarsfield + Ryan Lidsky
 
 Planing Document - 
-https://docs.google.com/document/d/1wKqie18V5C7mHhuW_HAau8Jqn2VWbpU8tW-WHC7AnnY/edit
+https://docs.google.com/document/d/1IfUFqOnUcCqeSrkmo0wQnR-L9XEQvssNMv-8LN1XIa8/edit?usp=sharing
