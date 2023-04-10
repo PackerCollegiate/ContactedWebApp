@@ -48,10 +48,14 @@ class ResetPasswordForm(FlaskForm):
 
 class EditProfileForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
+    fullname_me = TextAreaField('Full Name', validators=[Length(min=0, max=140)])
+    email_me = TextAreaField('Email', validators=[Length(min=0, max=140)])
+    phonenumber_me = TextAreaField('Phone Number', validators=[Length(min=0, max=140)])
+    city_me = TextAreaField('City', validators=[Length(min=0, max=140)])
+    jobtitle_me = TextAreaField('Job Title', validators=[Length(min=0, max=140)])
+    company_me = TextAreaField('Company', validators=[Length(min=0, max=140)])
     about_me = TextAreaField('About me', validators=[Length(min=0, max=140)])
-#    company_me = TextAreaField('About me', validators=[Length(min=0, max=140)])
     submit = SubmitField('Submit')
-
     def __init__(self, original_username, *args, **kwargs):
         super(EditProfileForm, self).__init__(*args, **kwargs)
         self.original_username = original_username

@@ -6,6 +6,12 @@
             <td width="256px"><img src="{{ user.avatar(256) }}"></td>
             <td>
                 <h1>User: {{ user.username }}</h1>
+                {% if user.fullname_me %}<p>{{ user.fullname_me }}</p>{% endif %}
+                {% if user.email_me %}<p>{{ user.email_me }}</p>{% endif %}
+                {% if user.phonenumber_me %}<p>{{ user.phonenumber_me }}</p>{% endif %}
+                {% if user.city_me %}<p>{{ user.city_me }}</p>{% endif %}
+                {% if user.jobtitle_me %}<p>{{ user.jobtitle_me }}</p>{% endif %}
+                {% if user.company_me %}<p>{{ user.company_me }}</p>{% endif %}
                 {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
                 {% if user.last_seen %}<p>Last seen on: {{ user.last_seen }}</p>{% endif %}
                 {% if user == current_user %}
