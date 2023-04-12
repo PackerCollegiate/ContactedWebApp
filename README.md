@@ -1,5 +1,8 @@
 # ContactedWebApp
 Luke Sarsfield + Ryan Lidsky
 
-Planing Document - 
+Sprint 1 Planing Document - 
 https://docs.google.com/document/d/1IfUFqOnUcCqeSrkmo0wQnR-L9XEQvssNMv-8LN1XIa8/edit?usp=sharing
+
+Sprint 2 Planing Document - 
+https://docs.google.com/document/d/1Wnw_S3nUNRT0sA8aZW1i-TLOi8kVyOnoBLQi4Z_Y7ZA/edit?usp=sharing
