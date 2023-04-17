@@ -1,82 +1,96 @@
-2023-04-10 11:50:11,256 ERROR: Exception on / [GET] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
-Traceback (most recent call last):
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
-    self.dialect.do_execute(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 748, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.OperationalError: no such column: user.company_me
-
-The above exception was the direct cause of the following exception:
-
+2023-04-16 09:02:17,503 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-04-16 09:02:24,070 ERROR: Exception on /news [GET] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
 Traceback (most recent call last):
   File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 2528, in wsgi_app
     response = self.full_dispatch_request()
   File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1825, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1821, in full_dispatch_request
-    rv = self.preprocess_request()
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 2312, in preprocess_request
-    rv = self.ensure_sync(before_func)()
-  File "/Users/lusarsfield/Code/ContactedWebApp/app/routes.py", line 14, in before_request
-    if current_user.is_authenticated:
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/werkzeug/local.py", line 316, in __get__
-    obj = instance._get_current_object()
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/werkzeug/local.py", line 520, in _get_current_object
-    return get_name(local())  # type: ignore
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_login/utils.py", line 25, in <lambda>
-    current_user = LocalProxy(lambda: _get_user())
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_login/utils.py", line 372, in _get_user
-    current_app.login_manager._load_user()
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_login/login_manager.py", line 364, in _load_user
-    user = self._user_callback(user_id)
-  File "/Users/lusarsfield/Code/ContactedWebApp/app/models.py", line 82, in load_user
-    return User.query.get(int(id))
-  File "<string>", line 2, in get
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/util/deprecations.py", line 383, in warned
-    return fn(*args, **kwargs)  # type: ignore[no-any-return]
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/query.py", line 1130, in get
-    return self._get_impl(ident, loading.load_on_pk_identity)
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/query.py", line 1139, in _get_impl
-    return self.session._get_impl(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 3672, in _get_impl
-    return db_load_fn(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/loading.py", line 668, in load_on_pk_identity
-    session.execute(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2229, in execute
-    return self._execute_internal(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2124, in _execute_internal
-    result: Result[Any] = compile_state_cls.orm_execute_statement(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/context.py", line 253, in orm_execute_statement
-    result = conn.execute(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1414, in execute
-    return meth(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 486, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
-    ret = self._execute_context(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1842, in _execute_context
-    return self._exec_single_context(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
-    self._handle_dbapi_exception(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2326, in _handle_dbapi_exception
-    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
-    self.dialect.do_execute(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 748, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: user.company_me
-[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.company_me AS user_company_me, user.last_seen AS user_last_seen 
-FROM user 
-WHERE user.id = ?]
-[parameters: (1,)]
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-2023-04-10 11:50:33,172 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-04-10 11:50:45,343 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-04-10 11:50:52,198 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-04-10 11:51:02,717 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-04-10 12:00:46,650 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-04-10 12:00:52,345 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-04-10 12:00:58,899 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-04-10 12:01:08,387 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-04-10 12:01:14,982 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-04-10 12:01:19,188 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/Users/lusarsfield/Code/ContactedWebApp/app/routes.py", line 206, in news
+    submit = SubmitField('Submit')
+NameError: name 'SubmitField' is not defined
+2023-04-16 09:02:34,117 ERROR: Exception on /news [GET] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
+Traceback (most recent call last):
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/Users/lusarsfield/Code/ContactedWebApp/app/routes.py", line 206, in news
+    return render_template('news.html', title='News')
+NameError: name 'SubmitField' is not defined
+2023-04-16 09:02:35,555 ERROR: Exception on /news [GET] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
+Traceback (most recent call last):
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/Users/lusarsfield/Code/ContactedWebApp/app/routes.py", line 206, in news
+    return render_template('news.html', title='News')
+NameError: name 'SubmitField' is not defined
+2023-04-16 09:02:37,883 ERROR: Exception on /news [GET] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
+Traceback (most recent call last):
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/Users/lusarsfield/Code/ContactedWebApp/app/routes.py", line 206, in news
+    return render_template('news.html', title='News')
+NameError: name 'SubmitField' is not defined
+2023-04-16 09:02:39,259 ERROR: Exception on /news [GET] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
+Traceback (most recent call last):
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/Users/lusarsfield/Code/ContactedWebApp/app/routes.py", line 206, in news
+    return render_template('news.html', title='News')
+NameError: name 'SubmitField' is not defined
+2023-04-16 09:02:40,467 ERROR: Exception on /news [GET] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
+Traceback (most recent call last):
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/Users/lusarsfield/Code/ContactedWebApp/app/routes.py", line 206, in news
+    return render_template('news.html', title='News')
+NameError: name 'SubmitField' is not defined
+2023-04-16 09:02:43,963 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-04-16 09:09:43,262 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-04-16 09:12:58,349 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-04-16 09:16:16,429 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-04-16 09:17:04,133 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]

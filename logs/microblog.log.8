@@ -1,4 +1,4 @@
-2023-04-03 13:28:36,256 ERROR: Exception on /user/32 [GET] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
+2023-04-03 13:41:53,583 ERROR: Exception on /user/32 [GET] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
 Traceback (most recent call last):
   File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 2528, in wsgi_app
     response = self.full_dispatch_request()
@@ -34,21 +34,13 @@ Traceback (most recent call last):
     {% block content -%}
   File "/Users/lusarsfield/Code/ContactedWebApp/app/templates/base.html", line 47, in block 'content'
     {% block app_content %}{% endblock %}
-  File "/Users/lusarsfield/Code/ContactedWebApp/app/templates/user.html", line 13, in block 'app_content'
+  File "/Users/lusarsfield/Code/ContactedWebApp/app/templates/user.html", line 14, in block 'app_content'
     {% elif not current_user.is_following(user) %}
   File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/jinja2/utils.py", line 83, in from_obj
     if hasattr(obj, "jinja_pass_arg"):
 jinja2.exceptions.UndefinedError: 'app.models.User object' has no attribute 'is_following'
-2023-04-03 13:34:34,735 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-04-03 13:35:07,453 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-04-03 13:36:02,904 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-04-03 13:36:43,912 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-04-03 13:38:35,046 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-04-03 13:38:42,420 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-04-03 13:39:07,775 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-04-03 13:41:09,769 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-04-03 13:41:46,397 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-04-03 13:41:48,372 ERROR: Exception on /user/32 [GET] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
+2023-04-03 13:42:28,307 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-04-03 13:42:31,130 ERROR: Exception on /user/32 [GET] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
 Traceback (most recent call last):
   File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 2528, in wsgi_app
     response = self.full_dispatch_request()
