@@ -1,77 +1,4 @@
-2023-03-17 10:56:12,193 ERROR: Exception on /register [POST] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
-Traceback (most recent call last):
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
-    self.dialect.do_execute(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 748, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.OperationalError: no such table: user
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 2528, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1825, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1823, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "/Users/lusarsfield/Code/ContactedWebApp/app/routes.py", line 85, in register
-    if form.validate_on_submit():
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_wtf/form.py", line 86, in validate_on_submit
-    return self.is_submitted() and self.validate(extra_validators=extra_validators)
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/wtforms/form.py", line 329, in validate
-    return super().validate(extra)
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/wtforms/form.py", line 146, in validate
-    if not field.validate(self, extra):
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/wtforms/fields/core.py", line 242, in validate
-    stop_validation = self._run_validation_chain(form, chain)
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/wtforms/fields/core.py", line 262, in _run_validation_chain
-    validator(form, self)
-  File "/Users/lusarsfield/Code/ContactedWebApp/app/forms.py", line 25, in validate_username
-    user = User.query.filter_by(username=username.data).first()
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/query.py", line 2752, in first
-    return self.limit(1)._iter().first()  # type: ignore
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/query.py", line 2855, in _iter
-    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2229, in execute
-    return self._execute_internal(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2124, in _execute_internal
-    result: Result[Any] = compile_state_cls.orm_execute_statement(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/context.py", line 253, in orm_execute_statement
-    result = conn.execute(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1414, in execute
-    return meth(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 486, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
-    ret = self._execute_context(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1842, in _execute_context
-    return self._exec_single_context(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
-    self._handle_dbapi_exception(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2326, in _handle_dbapi_exception
-    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
-    self.dialect.do_execute(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 748, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
-[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
-FROM user 
-WHERE user.username = ?
- LIMIT ? OFFSET ?]
-[parameters: ('1', 1, 0)]
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-2023-03-17 10:56:46,104 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-03-17 10:56:57,311 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-03-17 10:57:05,905 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-03-17 10:57:14,326 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-03-17 10:57:18,256 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-03-17 10:57:34,604 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-03-17 11:02:08,839 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-03-17 11:02:10,957 ERROR: Exception on /explore [GET] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
+2023-04-03 13:43:24,709 ERROR: Exception on /user/32 [GET] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
 Traceback (most recent call last):
   File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 2528, in wsgi_app
     response = self.full_dispatch_request()
@@ -83,17 +10,79 @@ Traceback (most recent call last):
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
   File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/Users/lusarsfield/Code/ContactedWebApp/app/routes.py", line 45, in explore
-    if form.validate_on_submit():
-NameError: name 'form' is not defined
-2023-03-17 11:02:37,483 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-03-17 11:04:04,747 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-03-17 11:05:23,855 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-03-17 11:07:24,073 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-03-17 11:09:14,150 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-03-17 11:10:42,037 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-03-17 11:11:47,340 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-04-03 13:10:24,045 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-04-03 13:16:42,776 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-04-03 13:17:03,892 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-04-03 13:19:16,061 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+  File "/Users/lusarsfield/Code/ContactedWebApp/app/routes.py", line 125, in user
+    return render_template('user.html', user=user, posts=posts.items,
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/lusarsfield/Code/ContactedWebApp/app/templates/user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/lusarsfield/Code/ContactedWebApp/app/templates/base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block 'doc'
+    {%- block html %}
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block 'html'
+    {% block body -%}
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block 'body'
+    {% block content -%}
+  File "/Users/lusarsfield/Code/ContactedWebApp/app/templates/base.html", line 47, in block 'content'
+    {% block app_content %}{% endblock %}
+  File "/Users/lusarsfield/Code/ContactedWebApp/app/templates/user.html", line 14, in block 'app_content'
+    {% elif not current_user.is_following(user) %}
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/jinja2/utils.py", line 83, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+jinja2.exceptions.UndefinedError: 'app.models.User object' has no attribute 'is_following'
+2023-04-03 13:43:29,644 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-04-03 13:44:11,556 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-04-03 13:44:13,201 ERROR: Exception on /user/32 [GET] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
+Traceback (most recent call last):
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/Users/lusarsfield/Code/ContactedWebApp/app/routes.py", line 125, in user
+    return render_template('user.html', user=user, posts=posts.items,
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/lusarsfield/Code/ContactedWebApp/app/templates/user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/lusarsfield/Code/ContactedWebApp/app/templates/base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block 'doc'
+    {%- block html %}
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block 'html'
+    {% block body -%}
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block 'body'
+    {% block content -%}
+  File "/Users/lusarsfield/Code/ContactedWebApp/app/templates/base.html", line 47, in block 'content'
+    {% block app_content %}{% endblock %}
+  File "/Users/lusarsfield/Code/ContactedWebApp/app/templates/user.html", line 16, in block 'app_content'
+    <form action="{{ url_for('follow', username=user.username) }}" method="post">
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 2034, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 2023, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/werkzeug/routing/map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'follow' with values ['username']. Did you mean 'login' instead?

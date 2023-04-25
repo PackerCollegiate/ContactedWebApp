@@ -18,7 +18,7 @@ def before_request():
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
-@login_required
+
 def index():
     return render_template('index.html', title='Home')
 
@@ -204,3 +204,8 @@ def unfollow(username):
 @login_required
 def news():
     return render_template('news.html', title='News')
+
+@app.route('/contacts', methods=['GET', 'POST'])
+@login_required
+def contacts():
+    return render_template('contacts.html', title='Contacts')
