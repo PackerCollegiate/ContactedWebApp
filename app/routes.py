@@ -7,7 +7,8 @@ from app.forms import LoginForm, RegistrationForm, EditProfileForm, \
     EmptyForm, PostForm, ResetPasswordRequestForm, ResetPasswordForm
 from app.models import User, Post
 from app.email import send_password_reset_email
-
+from dataclasses import dataclass
+from flask_sqlalchemy import SQLAlchemy
 
 @app.before_request
 def before_request():
@@ -208,4 +209,5 @@ def news():
 @app.route('/contacts', methods=['GET', 'POST'])
 @login_required
 def contacts():
-    return render_template('contacts.html', title='Contacts')
+    users = User.query.all()
+    return render_template('contacts.html', users=users)

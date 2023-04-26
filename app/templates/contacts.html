@@ -1,7 +1,33 @@
-{% extends 'base.html' %}
-{% import 'bootstrap/wtf.html' as wtf %}
+{% extends "base.html" %}
 
-{% block app_content %}
-    <h1>News!</h1>
-    <p>This is the most recent news</p>
+{% block content %}
+  <div class="container">
+    <h1>Contact List</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>City</th>
+          <th>Job Title</th>
+          <th>Company</th>
+          <th>About</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users %}
+        <tr>
+          <td>{{ user.fullname_me }}</td>
+          <td>{{ user.email_me }}</td>
+          <td>{{ user.phonenumber_me }}</td>
+          <td>{{ user.city_me }}</td>
+          <td>{{ user.jobtitle_me }}</td>
+          <td>{{ user.company_me }}</td>
+          <td>{{ user.about_me }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 {% endblock %}
