@@ -2,7 +2,15 @@
 
 {% block content %}
   <div class="container">
-    <h1>Contact List</h1>
+    <h1>Contacts</h1>
+    <br>
+    <form class="form-inline mb-3">
+      <div class="form-group">
+        <input type="text" class="form-control" id="search-input" placeholder="Search Contacts">
+      </div>
+      <button type="button" class="btn btn-primary" id="search-button">Search</button>
+    </form>
+    <br>
     <table class="table">
       <thead>
         <tr>
@@ -30,4 +38,27 @@
       </tbody>
     </table>
   </div>
+  <script>
+    var searchButton = document.getElementById('search-button');
+    var searchInput = document.getElementById('search-input');
+    searchButton.addEventListener('click', function() {
+      var searchTerm = searchInput.value.toLowerCase();
+      var rows = document.getElementsByTagName('tr');
+      for (var i = 0; i < rows.length; i++) {
+        var cells = rows[i].getElementsByTagName('td');
+        var match = false;
+        for (var j = 0; j < cells.length; j++) {
+          if (cells[j].innerHTML.toLowerCase().indexOf(searchTerm) > -1) {
+            match = true;
+            break;
+          }
+        }
+        if (match) {
+          rows[i].style.display = '';
+        } else {
+          rows[i].style.display = 'none';
+        }
+      }
+    });
+  </script>
 {% endblock %}
