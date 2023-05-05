@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block content %}
+  <div class="container">
+    <h1>Events</h1>
+      <a href="/create_event" class="btn btn-primary">Create Event</a>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Host</th>
+          <th>Contact</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for event in events %}
+          <tr>
+            <td>{{ event.eventname }}</td>
+            <td>{{ event.eventadress }}</td>
+            <td>{{ event.eventdate }}</td>
+            <td>{{ event.eventtime }}</td>
+            <td>{{ event.eventhost }}</td>
+            <td>{{ event.eventcontact }}</td>
+            <td>{{ event.eventdetails }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

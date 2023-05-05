@@ -72,3 +72,15 @@ class EmptyForm(FlaskForm):
 class PostForm(FlaskForm):
     post = TextAreaField('Say something', validators=[DataRequired()])
     submit = SubmitField('Submit')
+
+class CreateEvent(FlaskForm):
+    eventname = StringField('Event Name', validators=[DataRequired()])
+    eventadress = TextAreaField('Event Adress', validators=[Length(min=0, max=140)])
+    eventdate = TextAreaField('Event Date', validators=[Length(min=0, max=140)])
+    eventtime = TextAreaField('Event Time', validators=[Length(min=0, max=140)])
+    eventhost = TextAreaField('Event Host', validators=[Length(min=0, max=140)])
+    eventcontact = TextAreaField('Event Contact', validators=[Length(min=0, max=140)])
+    eventdetails = TextAreaField('Event Details', validators=[Length(min=0, max=140)])
+
+    def __repr__(self):
+        return f'<Event {self.eventname}>'

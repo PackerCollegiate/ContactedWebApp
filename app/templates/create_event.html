@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block content %}
+  <div class="container">
+      <div class="col-md-6">
+        <h1>Create Event</h1>
+        <form method="POST" action="{{ url_for('create_event') }}">
+          {{ form.csrf_token }}
+          <div class="form-group">
+            {{ form.eventname.label(class="form-label") }}
+            {{ form.eventname(class="form-control") }}
+          </div>
+          <div class="form-group">
+            {{ form.eventadress.label(class="form-label") }}
+            {{ form.eventadress(class="form-control") }}
+          </div>
+          <div class="form-group">
+            {{ form.eventdate.label(class="form-label") }}
+            {{ form.eventdate(class="form-control") }}
+          </div>
+          <div class="form-group">
+            {{ form.eventtime.label(class="form-label") }}
+            {{ form.eventtime(class="form-control") }}
+          </div>
+          <div class="form-group">
+            {{ form.eventhost.label(class="form-label") }}
+            {{ form.eventhost(class="form-control") }}
+          </div>
+          <div class="form-group">
+            {{ form.eventcontact.label(class="form-label") }}
+            {{ form.eventcontact(class="form-control") }}
+          </div>
+          <div class="form-group">
+            {{ form.eventdetails.label(class="form-label") }}
+            {{ form.eventdetails(class="form-control") }}
+          </div>
+          <button type="submit" class="btn btn-primary">Create Event</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

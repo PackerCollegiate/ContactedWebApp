@@ -2,8 +2,32 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
-    <h1>Welcome {{ current_user.fullname_me}}!</h1>
-    <p>Join the discussion <a href="{{ url_for('chat') }}">Click to Chat!</a></p>
-    <p>Check out the latest <a href="{{ url_for('news') }}">Click to see the latest!</a></p>
-    <p>Change your information <a href="{{ url_for('edit_profile') }}">Click to edit profile!</a></p>
+
+<div class="jumbotron text-center">
+  <h1>Contacted</h1>
+  <p>Welcome {{ current_user.fullname_me}}!</p>
+</div>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Chat</h3>
+      <p>We allow groups to connect through our chat feature and chat with the entire group</p>
+      <a href="{{ url_for('chat') }}" class= "btn btn-primary btn-block" role="button"> Open Chat </a>
+    </div>
+    <div class="col-sm-4">
+      <h3>Contacts</h3>
+      <p>We allow users to both create contacts and search contacts of those within their group</p>
+
+      <a href="{{ url_for('contacts') }}" class= "btn btn-primary btn-block" role="button"> Open Contacts </a>
+    </div>
+    <div class="col-sm-4">
+      <h3>Events</h3>
+      <p>We allow users to create events for users within thier group for certain times</p>
+      <a href="{{ url_for('events') }}" class= "btn btn-primary btn-block" role="button"> Open Events </a>
+    </div>
+  </div>
+
+
+</div>
+
 {% endblock %}

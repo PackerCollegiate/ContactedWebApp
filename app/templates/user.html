@@ -13,9 +13,8 @@
                 {% if user.jobtitle_me %}<p>{{ user.jobtitle_me }}</p>{% endif %}
                 {% if user.company_me %}<p>{{ user.company_me }}</p>{% endif %}
                 {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
-                {% if user.last_seen %}<p>Last seen on: {{ user.last_seen }}</p>{% endif %}
                 {% if user == current_user %}
-                <p><a href="{{ url_for('edit_profile') }}">Edit your profile</a></p>
+                <a href="{{ url_for('edit_profile') }}" class= "btn btn-primary btn-block" role="button"> Edit Profile </a>
                 {% endif %}
             </td>
         </tr>

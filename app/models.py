@@ -6,7 +6,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
 from app import app, db, login
 
-
 followers = db.Table(
     'followers',
     db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
@@ -26,7 +25,7 @@ class User(UserMixin, db.Model):
     city_me = db.Column(db.String(140))
     jobtitle_me = db.Column(db.String(140))
     company_me = db.Column(db.String(140))
-    about_me = db.Column(db.String(140))    
+    about_me = db.Column(db.String(140))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
     followed = db.relationship(
         'User', secondary=followers,
@@ -85,6 +84,21 @@ class User(UserMixin, db.Model):
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
+
+class Event(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    eventname = db.Column(db.String(140))
+    eventadress = db.Column(db.String(140))
+    eventdate = db.Column(db.String(140))
+    eventtime = db.Column(db.String(140))
+    eventhost = db.Column(db.String(140))
+    eventcontact = db.Column(db.String(140))
+    eventdetails = db.Column(db.String(140))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+    def __repr__(self):
+        return f'<Event {self.title}>'
+
 
 
 class Post(db.Model):

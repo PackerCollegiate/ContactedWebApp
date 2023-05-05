@@ -3,9 +3,9 @@ from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
 from app import app, db
-from app.forms import LoginForm, RegistrationForm, EditProfileForm, \
+from app.forms import LoginForm, RegistrationForm, EditProfileForm, CreateEvent, \
     EmptyForm, PostForm, ResetPasswordRequestForm, ResetPasswordForm
-from app.models import User, Post
+from app.models import User, Post, Event
 from app.email import send_password_reset_email
 from dataclasses import dataclass
 from flask_sqlalchemy import SQLAlchemy
@@ -201,10 +201,30 @@ def unfollow(username):
     else:
         return redirect(url_for('index'))
 
-@app.route('/news', methods=['GET', 'POST'])
+@app.route('/events', methods=['GET', 'POST'])
 @login_required
-def news():
-    return render_template('news.html', title='News')
+def events():
+    events = Event.query.all()
+    return render_template('events.html', events=events)
+
+@app.route('/create_event', methods=['GET', 'POST'])
+@login_required
+def create_event():
+    form = CreateEvent()
+    if form.validate_on_submit():
+        event = Event(user_id=current_user.id, eventname=form.eventname.data,
+                      eventadress=form.eventadress.data,
+                      eventdate=form.eventdate.data,
+                      eventtime=form.eventtime.data,
+                      eventhost=form.eventhost.data,
+                      eventcontact=form.eventcontact.data,
+                      eventdetails=form.eventdetails.data)
+        db.session.add(event)
+        db.session.commit()
+        flash('Event added successfully.')
+        return redirect(url_for('events'))
+    return render_template('create_event.html', form=form)
+
 
 @app.route('/contacts', methods=['GET', 'POST'])
 @login_required
