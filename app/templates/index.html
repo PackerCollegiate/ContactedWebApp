@@ -3,30 +3,158 @@
 
 {% block app_content %}
 
-<div class="jumbotron text-center">
-  <h1>Contacted</h1>
-  <p>Welcome {{ current_user.fullname_me}}!</p>
-</div>
+<style>
+.jumbotron {
+  background-color: #6666ff;
+  color: #ffffff;
+}
 
-  <div class="row">
-    <div class="col-sm-4">
-      <h3>Chat</h3>
-      <p>We allow groups to connect through our chat feature and chat with the entire group</p>
-      <a href="{{ url_for('chat') }}" class= "btn btn-primary btn-block" role="button"> Open Chat </a>
-    </div>
-    <div class="col-sm-4">
-      <h3>Contacts</h3>
-      <p>We allow users to both create contacts and search contacts of those within their group</p>
+}
+.panel {
+  border: 1px solid #666fff;
+  border-radius:0 !important;
+  transition: box-shadow 0.5s;
+}
+.panel:hover {
+  box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+}
+.panel-footer .btn:hover {
+  border: 1px solid #666fff;
+  background-color: #fff !important;
+  color: #666fff;
+}
+.panel-heading {
+  color: #fff !important;
+  background-color: #666fff !important;
+  padding: 25px;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.panel-footer {
+  background-color: white !important;
+}
+.panel-footer h3 {
+  font-size: 32px;
+}
+.panel-footer h4 {
+  color: #aaa;
+  font-size: 14px;
+}
+.panel-footer .btn {
+  margin: 15px 0;
+  background-color: #666fff;
+  color: #fff;
+}
+@media screen and (max-width: 768px) {
+  .col-sm-4 {
+    text-align: center;
+    margin: 25px 0;
+  }
+}
+</style>
 
-      <a href="{{ url_for('contacts') }}" class= "btn btn-primary btn-block" role="button"> Open Contacts </a>
+<body>
+  <div class="jumbotron text-center">
+    <h1>Contacted</h1>
+    <p>Welcome {{ current_user.fullname_me}}!</p>
+  </div>
+</body>
+
+
+  <div class="container-fluid">
+    <div class="text-center">
     </div>
-    <div class="col-sm-4">
-      <h3>Events</h3>
-      <p>We allow users to create events for users within thier group for certain times</p>
-      <a href="{{ url_for('events') }}" class= "btn btn-primary btn-block" role="button"> Open Events </a>
+    <div class="row">
+      <div class="col-sm-4 col-xs-12">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <h1>Chat</h1>
+          </div>
+          <div class="panel-body">
+            <p>We allow groups to connect through our chat feature and chat with the entire group</p>
+          </div>
+          <div class="panel-footer">
+            <a href="{{ url_for('chat') }}" class= "btn btn-primary btn-block" role="button"> Open Chat </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-12">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <h1>Contacts</h1>
+          </div>
+          <div class="panel-body">
+            <p>We allow users to both create contacts and search contacts of those within their group</p>
+          </div>
+          <div class="panel-footer">
+            <a href="{{ url_for('contacts') }}" class= "btn btn-primary btn-block" role="button"> Open Contacts </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-12">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <h1>Events</h1>
+          </div>
+          <div class="panel-body">
+            <p>We allow users to create events for users within thier group for certain times</p>
+          </div>
+          <div class="panel-footer">
+            <a href="{{ url_for('events') }}" class= "btn btn-primary btn-block" role="button"> Open Events </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
+  <div class="container-fluid">
+    <div class="text-center">
+    </div>
+    <div class="row">
+      <div class="col-sm-4 col-xs-12">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <h1>Edit Profile</h1>
+          </div>
+          <div class="panel-body">
+            <p>Edit your personal infomation shared with your group in Contacted</p>
+          </div>
+          <div class="panel-footer">
+            <a href="{{ url_for('edit_profile') }}" class= "btn btn-primary btn-block" role="button"> Open Edit Profile </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-12">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <h1>Profile</h1>
+          </div>
+          <div class="panel-body">
+            <p>See the information that you have shared with your group</p>
+          </div>
+          <div class="panel-footer">
+            <a href="{{ url_for('user', username=current_user.username) }}" class= "btn btn-primary btn-block" role="button"> Open Profile</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-12">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <h1>Create Event</h1>
+          </div>
+          <div class="panel-body">
+            <p>Go strait to the form to create a new event for your group</p>
+          </div>
+          <div class="panel-footer">
+            <a href="{{ url_for('events') }}" class= "btn btn-primary btn-block" role="button"> Open Create Event </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>
 

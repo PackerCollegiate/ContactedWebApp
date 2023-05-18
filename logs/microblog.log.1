@@ -1,13 +1,4 @@
-2023-05-05 14:24:44,098 ERROR: Exception on /create_event [POST] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
-Traceback (most recent call last):
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
-    self.dialect.do_execute(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 748, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.IntegrityError: NOT NULL constraint failed: event.user_id
-
-The above exception was the direct cause of the following exception:
-
+2023-05-09 09:44:58,362 ERROR: Exception on /events [GET] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
 Traceback (most recent call last):
   File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 2528, in wsgi_app
     response = self.full_dispatch_request()
@@ -19,61 +10,26 @@ Traceback (most recent call last):
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
   File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/Users/lusarsfield/Code/ContactedWebApp/app/routes.py", line 223, in create_event
-    db.session.commit()
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/scoping.py", line 553, in commit
-    return self._proxied.commit()
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1903, in commit
-    trans.commit(_to_root=True)
-  File "<string>", line 2, in commit
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
-    ret_value = fn(self, *arg, **kw)
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1218, in commit
-    self._prepare_impl()
-  File "<string>", line 2, in _prepare_impl
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
-    ret_value = fn(self, *arg, **kw)
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1193, in _prepare_impl
-    self.session.flush()
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4155, in flush
-    self._flush(objects)
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4291, in _flush
-    with util.safe_reraise():
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 147, in __exit__
-    raise exc_value.with_traceback(exc_tb)
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4252, in _flush
-    flush_context.execute()
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 467, in execute
-    rec.execute(self)
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 644, in execute
-    util.preloaded.orm_persistence.save_obj(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
-    _emit_insert_statements(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 1184, in _emit_insert_statements
-    result = connection.execute(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1414, in execute
-    return meth(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 486, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
-    ret = self._execute_context(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1842, in _execute_context
-    return self._exec_single_context(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
-    self._handle_dbapi_exception(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2326, in _handle_dbapi_exception
-    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
-    self.dialect.do_execute(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 748, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: event.user_id
-[SQL: INSERT INTO event (eventname, eventadress, eventdate, eventtime, eventhost, eventcontact, eventdetails, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)]
-[parameters: ('vfwvv', 'etvev', 'evwetv', 'eveqr', 'ervwev', 'etvertrv', 'vevqe', None)]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
-2023-05-05 14:26:53,447 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-05-05 14:27:19,558 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-05-05 14:27:23,396 ERROR: Exception on /create_event [POST] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
+  File "/Users/lusarsfield/Code/ContactedWebApp/app/routes.py", line 208, in events
+    return render_template('events.html', events=events)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/templating.py", line 146, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/jinja2/environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/jinja2/environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/jinja2/loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/jinja2/environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/lusarsfield/Code/ContactedWebApp/app/templates/events.html", line 31, in template
+    <td>{{ href="{{ url_for('chat') }}" class= "btn btn-primary btn-block" role="button"> Open Chat </td>
+jinja2.exceptions.TemplateSyntaxError: expected token 'end of print statement', got '='
+2023-05-09 09:44:58,971 ERROR: Exception on /events [GET] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
 Traceback (most recent call last):
   File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 2528, in wsgi_app
     response = self.full_dispatch_request()
@@ -85,37 +41,62 @@ Traceback (most recent call last):
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
   File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/Users/lusarsfield/Code/ContactedWebApp/app/routes.py", line 222, in create_event
-    user_id=form.user_id.data)
-AttributeError: 'CreateEvent' object has no attribute 'user_id'
-2023-05-05 14:27:34,352 ERROR: Exception on /create_event [POST] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
-Traceback (most recent call last):
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 2528, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1825, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1823, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/Users/lusarsfield/Code/ContactedWebApp/app/routes.py", line 222, in create_event
-    user_id=form.user_id.data)
-AttributeError: 'CreateEvent' object has no attribute 'user_id'
-2023-05-05 14:29:54,496 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
-2023-05-05 14:30:05,361 ERROR: Exception on /create_event [POST] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
-Traceback (most recent call last):
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 2528, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1825, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1823, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/Users/lusarsfield/Code/ContactedWebApp/app/routes.py", line 215, in create_event
-    event = Event(user_id=form.user_id.data, eventname=form.eventname.data,
-AttributeError: 'CreateEvent' object has no attribute 'user_id'
+  File "/Users/lusarsfield/Code/ContactedWebApp/app/routes.py", line 208, in events
+    return render_template('events.html', events=events)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/templating.py", line 146, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/jinja2/environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/jinja2/environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/jinja2/loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/jinja2/environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/lusarsfield/Code/ContactedWebApp/app/templates/events.html", line 31, in template
+    <td>{{ href="{{ url_for('chat') }}" class= "btn btn-primary btn-block" role="button"> Open Chat </td>
+jinja2.exceptions.TemplateSyntaxError: expected token 'end of print statement', got '='
+2023-05-09 09:45:26,720 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-09 09:45:55,688 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-09 09:46:16,429 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-10 08:45:57,462 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-15 10:51:35,895 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-17 15:48:13,541 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-17 15:52:23,896 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-17 15:52:45,239 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-17 15:53:03,441 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-17 15:57:55,033 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-17 15:58:44,172 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-17 16:13:02,539 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-17 16:14:30,219 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-17 16:17:05,556 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-17 16:17:28,849 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-17 16:20:16,706 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-17 16:22:38,796 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-17 16:23:04,946 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-17 16:23:58,024 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-17 16:24:28,849 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-17 16:27:41,348 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-17 16:28:08,535 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-17 16:29:04,045 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-17 16:29:31,480 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-17 16:30:24,568 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-17 16:34:20,305 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-17 16:34:58,490 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-18 09:00:16,865 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-18 09:13:43,595 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-18 09:18:59,126 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-18 09:19:20,288 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-18 09:19:46,841 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-18 09:20:32,888 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-18 09:20:55,721 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-18 09:21:15,422 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-18 09:23:42,325 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-18 09:25:51,758 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-18 09:26:18,449 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-18 09:26:49,244 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-18 09:27:31,138 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]

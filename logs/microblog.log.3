@@ -1,13 +1,12 @@
-2023-05-05 14:23:17,059 ERROR: Exception on /create_event [POST] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
-Traceback (most recent call last):
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
-    self.dialect.do_execute(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 748, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.IntegrityError: NOT NULL constraint failed: event.user_id
-
-The above exception was the direct cause of the following exception:
-
+2023-05-05 14:31:48,228 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-05 14:36:11,054 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-05 14:36:52,771 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-05 14:37:55,098 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-09 09:02:26,641 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-09 09:17:11,149 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-09 09:18:05,354 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-09 09:25:51,852 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-09 09:25:57,914 ERROR: Exception on /events [GET] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
 Traceback (most recent call last):
   File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 2528, in wsgi_app
     response = self.full_dispatch_request()
@@ -19,55 +18,24 @@ Traceback (most recent call last):
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
   File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/Users/lusarsfield/Code/ContactedWebApp/app/routes.py", line 223, in create_event
-    db.session.commit()
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/scoping.py", line 553, in commit
-    return self._proxied.commit()
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1903, in commit
-    trans.commit(_to_root=True)
-  File "<string>", line 2, in commit
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
-    ret_value = fn(self, *arg, **kw)
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1218, in commit
-    self._prepare_impl()
-  File "<string>", line 2, in _prepare_impl
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
-    ret_value = fn(self, *arg, **kw)
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1193, in _prepare_impl
-    self.session.flush()
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4155, in flush
-    self._flush(objects)
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4291, in _flush
-    with util.safe_reraise():
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 147, in __exit__
-    raise exc_value.with_traceback(exc_tb)
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4252, in _flush
-    flush_context.execute()
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 467, in execute
-    rec.execute(self)
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 644, in execute
-    util.preloaded.orm_persistence.save_obj(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
-    _emit_insert_statements(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 1184, in _emit_insert_statements
-    result = connection.execute(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1414, in execute
-    return meth(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 486, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
-    ret = self._execute_context(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1842, in _execute_context
-    return self._exec_single_context(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
-    self._handle_dbapi_exception(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2326, in _handle_dbapi_exception
-    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
-    self.dialect.do_execute(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 748, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: event.user_id
-[SQL: INSERT INTO event (eventname, eventadress, eventdate, eventtime, eventhost, eventcontact, eventdetails, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)]
-[parameters: ('Test Event', 'Test Event', 'Test Event', 'Test Event', 'Test Event', 'Test Event', 'Test Event', None)]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
+  File "/Users/lusarsfield/Code/ContactedWebApp/app/routes.py", line 207, in events
+    events = Event.query.all()
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/query.py", line 2697, in all
+    return self._iter().all()  # type: ignore
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/result.py", line 1756, in all
+    return self._allrows()
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/result.py", line 529, in _allrows
+    rows = self._fetchall_impl()
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/result.py", line 1663, in _fetchall_impl
+    return self._real_result._fetchall_impl()
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/result.py", line 2263, in _fetchall_impl
+    return list(self.iterator)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/orm/loading.py", line 191, in chunks
+    fetch = cursor._raw_all_rows()
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/result.py", line 521, in _raw_all_rows
+    return [make_row(row) for row in rows]
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/result.py", line 521, in <listcomp>
+    return [make_row(row) for row in rows]
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 25, in sqlalchemy.cyextension.resultproxy.BaseRow.__init__
+  File "lib/sqlalchemy/cyextension/processors.pyx", line 45, in sqlalchemy.cyextension.processors.str_to_date
+ValueError: Invalid isoformat string: 'rdgbrt'

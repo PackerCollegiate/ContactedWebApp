@@ -77,7 +77,7 @@ def register():
         return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(username=form.username.data, email=form.email.data)
+        user = User(username=form.username.data, email=form.email.data, email_me=form.email.data, fullname_me=form.fullname_me.data)
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
@@ -224,7 +224,6 @@ def create_event():
         flash('Event added successfully.')
         return redirect(url_for('events'))
     return render_template('create_event.html', form=form)
-
 
 @app.route('/contacts', methods=['GET', 'POST'])
 @login_required

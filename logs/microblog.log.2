@@ -1,10 +1,14 @@
-2023-05-05 14:23:28,614 ERROR: Exception on /create_event [POST] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
+2023-05-09 09:27:02,448 ERROR: Exception on /create_event [POST] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
 Traceback (most recent call last):
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
-    self.dialect.do_execute(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 748, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.IntegrityError: NOT NULL constraint failed: event.user_id
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1808, in _execute_context
+    context = constructor(
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 1262, in _init_compiled
+    l_param: List[Any] = [
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 1263, in <listcomp>
+    flattened_processors[key](compiled_params[key])
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/base.py", line 1155, in process
+    raise TypeError(
+TypeError: SQLite Date type only accepts Python date objects as input.
 
 The above exception was the direct cause of the following exception:
 
@@ -57,18 +61,55 @@ Traceback (most recent call last):
     return connection._execute_clauseelement(
   File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
     ret = self._execute_context(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1842, in _execute_context
-    return self._exec_single_context(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
     self._handle_dbapi_exception(
   File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2326, in _handle_dbapi_exception
     raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
-    self.dialect.do_execute(
-  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 748, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: event.user_id
-[SQL: INSERT INTO event (eventname, eventadress, eventdate, eventtime, eventhost, eventcontact, eventdetails, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)]
-[parameters: ('erv', 'tb', 'tvr', 'et', 'ev', 'vt', 'eger', None)]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
-2023-05-05 14:24:30,003 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1808, in _execute_context
+    context = constructor(
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 1262, in _init_compiled
+    l_param: List[Any] = [
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 1263, in <listcomp>
+    flattened_processors[key](compiled_params[key])
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/base.py", line 1155, in process
+    raise TypeError(
+sqlalchemy.exc.StatementError: (builtins.TypeError) SQLite Date type only accepts Python date objects as input.
+[SQL: INSERT INTO event (user_id, eventname, eventadress, eventdate, eventtime, eventhost, eventcontact, eventdetails) VALUES (?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: [{'eventtime': 'f', 'eventhost': 'f', 'user_id': 1, 'eventdate': 'f', 'eventdetails': 'f', 'eventadress': 'f', 'eventcontact': 'f', 'eventname': 'f'}]]
+2023-05-09 09:28:31,551 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-09 09:42:49,474 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-09 09:43:28,948 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-09 09:43:53,534 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-09 09:44:31,839 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-09 09:44:33,733 ERROR: Exception on /events [GET] [in /Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py:1744]
+Traceback (most recent call last):
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/Users/lusarsfield/Code/ContactedWebApp/app/routes.py", line 208, in events
+    return render_template('events.html', events=events)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/flask/templating.py", line 146, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/jinja2/environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/jinja2/environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/jinja2/loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/jinja2/environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "/Users/lusarsfield/Code/ContactedWebApp/venv/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/lusarsfield/Code/ContactedWebApp/app/templates/events.html", line 31, in template
+    <td>{{ <a href="{{ url_for('chat') }}" class= "btn btn-primary btn-block" role="button"> Open Chat </a> }}</td>
+jinja2.exceptions.TemplateSyntaxError: unexpected '<'
+2023-05-09 09:44:56,506 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
