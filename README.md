@@ -1,4 +1,4 @@
-# ContactedWebApp
+# Contacted Web App
 Luke Sarsfield + Ryan Lidsky
 
 Sprint 1 Planing Document - 
