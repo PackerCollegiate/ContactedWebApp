@@ -104,3 +104,4 @@ werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'user'.
 2023-05-18 18:58:23,892 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
 2023-05-18 19:00:27,082 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
 2023-05-18 19:00:54,655 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]
+2023-05-19 11:29:01,565 INFO: Microblog startup [in /Users/lusarsfield/Code/ContactedWebApp/app/__init__.py:47]

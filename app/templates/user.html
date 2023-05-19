@@ -5,7 +5,7 @@
         <tr>
             <td width="256px"><img src="{{ user.avatar(256) }}"></td>
             <td>
-                <h1>Hi {{ user.fullname_me }}!</h1>
+                <h1>{{ user.fullname_me }}</h1>
                 {% if user.fullname_me %}<p>{{ user.fullname_me }}</p>{% endif %}
                 {% if user.email_me %}<p>{{ user.email_me }}</p>{% endif %}
                 {% if user.phonenumber_me %}<p>{{ user.phonenumber_me }}</p>{% endif %}
